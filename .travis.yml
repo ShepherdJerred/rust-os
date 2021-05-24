@@ -1,4 +1,5 @@
 language: rust
+os:
 rust:
 - stable
 - beta
@@ -12,7 +13,7 @@ before_script:
 - rustup component add llvm-tools-preview
 # https://github.com/rust-osdev/bootimage/issues/64
 - (cd .. && cargo install bootimage)
-- sudo apt install qemu
+- sudo apt update; sudo apt install qemu
 script:
 - cargo build --verbose --all
 - cargo test
